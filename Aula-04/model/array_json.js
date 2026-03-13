@@ -153,8 +153,143 @@ const verificarItem = function(nome){
     //Verifica se o conteúdo existe dentro do ARRAY e retorna (True/False)
     console.log(listaDeNome.includes(nome))
 }
+const manipularDadosJSON = function(){
+    //Criando um objeto JSON
+        //A estrutura do JSON é Chave (atributo) : Valor(conteúdo)
+    let aluno = {"id": 1, "nome":"Shaolin Matador de Porco", "ra": 123456, "email":"Shaolin@gmail.com"}
 
-verificarItem('Marcelinho do grau')
+    //Exibe  objeto JSON
+    console.log(aluno)
+    console.table(aluno)
+
+    aluno.telefone = "(11) 4002-8922"
+    aluno.data_nascimento = '11/09/2010'
+
+     //Exibe o conteúdo de um atributo do JSON
+     console.log(aluno.nome, "🤙")
+     console.log(aluno.email)
+
+    console.log(aluno)
+    console.table(aluno)
+
+    delete aluno.email
+    console.log(aluno)
+
+    aluno.ra = 123456789
+    console.log(aluno)
+
+    aluno.nota = null
+    console.log(aluno)
+}
+const cadastroDeProdutos= function(){ 
+    let cores =[
+        
+            {"id":1, "cor":"Branco", "Hexa": "#ffffff"}, //0
+            {"id":2, "cor": 'Preto', "Hexa": "000000"}, //1
+            {"id":3, "cor": 'Azul', "Hexa": "0000ff"}, //2
+            {"id":4, "cor": 'Amarelo', "Hexa": "ffff00"}, //3
+            {"id":5, "cor": 'Rosa', "Hexa": "ffb5c0"}, //4
+               ]
+               //console.log(cores[2].cor)
+
+               cores.forEach(function(itemCor){
+                console.log(itemCor.cor)
+               })
+
+               console.log("----------------------------------------------")
+
+               for(cor in cores){
+                console.log(cores[cor].cor)
+               }
+
+               let marcas =[
+        
+                {"id":1, "marca":"Maça velha mordida", "telefone":"(11) 92012-2133", "email":"maça@gmail.com"},//0
+                {"id":2, "marca": 'Samsungo', "telefone":"(11) 96490-9001", "email":"sansungo@gmail.com"},//1
+                {"id":3, "marca": 'Xing-ling', "telefone":"(11) 92444-9849", "email":"xingling@gmail.com"},//2
+                {"id":4, "marca": 'Moto e rola', "telefone":"(11) 97392-2133", "email":"rola@gmail.com"},//3
+                {"id":5, "marca": 'Positivo 👍', "telefone":"(11) 72392-1234", "email":"joia@gmail.com"},//4
+                {"id":6, "marca": 'LG', "telefone":"(11) 98323-0923", "email":"real@gmail.com"}//5
+                   ]
+
+                   console.table(marcas)
+                   for(marca in marcas){
+                    console.log(marcas[marca].marca)
+                }
+
+                   console.log("----------------------------------------------")
+
+
+
+                let produtos = [
+
+                    {
+                        "id":1,
+                        "Produto":"Celular",
+                        "Modelo":"Iphone 12",
+                        "Valor":"R$ 2000,59",
+                        "Quantidade":90,
+                        "Cor": [
+                            cores[2],
+                            cores[4]],
+                        "Marca": [marcas[0].marca]},
+
+                    {
+                        "id":2,
+                        "Produto":"Celular",
+                        "Modelo":"Samsung Galaxy Pro",
+                        "Valor":"R$ 230,59", 
+                        "Quantidade":290,
+                        "Cor": [
+                            cores[0],
+                            cores[1],
+                            cores[2],
+                            cores[3],
+                            cores[4],],
+                        "Marca": [marcas[1].marca]},
+
+
+
+
+                    {
+                        "id":3,
+                        "Produto":"Celular",
+                        "Modelo":"Xiaomi 17 Pro" ,
+                        "Valor":"R$ 1230,59",
+                        "Quantidade":400,
+                        "Cor": [
+                            cores[1], 
+                            cores[0]],
+                        "Marca": [marcas[2].marca]},
+                    
+                ]
+                console.table(produtos)
+
+                   console.log("----------------------------------------------")
+
+                produtos.forEach(function(listarTudo){
+                    console.log("----------------------------------------------")
+                    console.log(`ID: ${listarTudo.id}`)
+                    console.log(`Produto:  ${listarTudo.Produto}`)
+                    console.log(`Modelo:  ${listarTudo.Modelo}`)
+                    console.log(`Valor: ${listarTudo.Valor}`)
+                    console.log(`Quantidade: ${listarTudo.Quantidade}`)
+                    listarTudo.Cor.forEach(function(itemCor){
+                        console.log(`Cor: ${itemCor.cor}`)
+                    })
+                    listarTudo.Marca.forEach(function(itemMarca){
+                        console.log(`Marca: ${itemMarca}`)
+                    })
+                    console.log("----------------------------------------------")
+
+                })
+  
+}
+
+
+cadastroDeProdutos()
+//manipularDadosJSON()
+//verificarItem('Marcelinho do grau')
 //console.table(listaDeFornecedores)
 //removerItem('Jose')
 //
